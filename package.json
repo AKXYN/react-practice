@@ -1,0 +1,39 @@
+{
+  "name": "react-practice",
+  "version": "1.0.0",
+  "description": "This is react practice",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKXYN/react-practice.git"
+  },
+  "keywords": [
+    "react",
+    "practice"
+  ],
+  "author": "AKXYN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AKXYN/react-practice/issues"
+  },
+  "homepage": "https://github.com/AKXYN/react-practice#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "postcss": "^8.4.38",
+    "process": "^0.11.10",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3"
+  },
+  "browsersList": [
+    "last 2 versions"
+  ]
+}

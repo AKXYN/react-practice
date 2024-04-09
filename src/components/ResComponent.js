@@ -1,0 +1,18 @@
+const ResComponent = (props) => {
+    // console.log(props)
+    const {name,style,rating,time,link} = props
+    return (
+        <div className="p-8 m-8 border shadow-lg bg-purple-200 w-52 h-[400px] rounded-lg hover:bg-purple-300 hover:shadow-2xl hover:border-black">
+            <h3 className="font-bold ">{name}</h3>
+            <img 
+            className="w-40 rounded-lg"
+            src={link}
+            />
+            <h4>{style}</h4>
+            <h4>{rating+" stars"}</h4>
+            <h4>{time}</h4>
+        </div>
+    )
+}
+
+export default ResComponent
