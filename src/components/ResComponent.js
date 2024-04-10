@@ -2,7 +2,7 @@ const ResComponent = (props) => {
     // console.log(props)
     const {name,style,rating,time,link} = props
     return (
-        <div className="p-8 m-8 border shadow-lg bg-purple-200 w-52 h-[400px] rounded-lg hover:bg-purple-300 hover:shadow-2xl hover:border-black">
+        <div className="p-8 border shadow-lg bg-purple-200 w-52 h-[400px] rounded-lg hover:bg-purple-300 hover:shadow-2xl hover:border-black">
             <h3 className="font-bold ">{name}</h3>
             <img 
             className="w-40 rounded-lg"
@@ -21,7 +21,7 @@ export const Enhanced = (ResComponent) => {
     const NewComponent = (props) => {
         return (
             <div>
-                <label className="absolute ml-32 bg-black text-white rounded-lg w-28 px-4">TOP RATED</label>
+                <label className="absolute ml-24 bg-black text-white rounded-lg w-28 px-4">TOP RATED</label>
                 <ResComponent {...props}
                 />
             </div>

@@ -67,7 +67,7 @@ const Body = () => {
                 API IS WORKING*/}
                 {powerfulCards?.map(card => 
                 (card?.info?.avgRating<4.5)?
-                (<Link to={"/restaurant/"+card?.info?.id}>
+                (<Link to={"/restaurant/"+card?.info?.id} className="m-8" >
                     <ResComponent
                         key = {card?.info?.id}
                         name={card?.info?.name}
@@ -77,7 +77,7 @@ const Body = () => {
                         link={CLOUDINARY_IMG_PREFIX+card?.info?.cloudinaryImageId} />
                 </Link>
                 ) : (
-                <Link to={"/restaurant/"+card?.info?.id}>
+                <Link to={"/restaurant/"+card?.info?.id} className="m-8">
                     <TopRatedRes
                         key = {card?.info?.id}
                         name={card?.info?.name}
