@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import { CLOUDINARY_IMG_PREFIX, API_MENU_LINK_PREFIX, API_MENU_LINK_SUFFIX } from "../utils/constants"
 // import { json } from "react-router-dom"
 import { useParams } from "react-router-dom"
+import ResCategory from "./ResCategory"
 
-const MenuCard = (props) => {
+export const MenuCard = (props) => {
     return (
-        <div className="flex m-4 border border-solid items-center drop-shadow-lg h-32 rounded-3xl hover:drop-shadow-2xl hover:cursor-pointer bg-purple-100 hover:bg-purple-200 hover:border-solid hover:border-black hover:border">
+        <div className="flex m-4 border border-solid items-center drop-shadow-lg h-32 rounded-3xl hover:drop-shadow-2xl hover:cursor-pointer bg-purple-100 hover:bg-pink-200 hover:border-solid hover:border-black hover:border">
             <img className="h-full mr-[1000px] rounded-3xl border-black border"
             src={CLOUDINARY_IMG_PREFIX+props?.link} />
             <div className="font-bold">
@@ -37,21 +38,21 @@ const RestaurantMenu = () => {
         console.log(categoriesFromAPI)
         const filteredCategories = categoriesFromAPI?.filter(category => (category?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")) // DO FROM HERE
         console.log(filteredCategories)
+        setcategories(filteredCategories)
     }
     return (
         <div>
             <h1 className="font-bold m-8 text-3xl text-center">{resName}</h1>
-            {menuFromAPI?.map(
+            {categories.map((category)=><ResCategory category={category}/>)}
+            {/* {menuFromAPI?.map(
             (menu) => <MenuCard 
             key={menu?.card?.info?.id}
             name={menu?.card?.info?.name} 
             price={menu?.card?.info?.price/100}
             link={menu?.card?.info?.imageId}
             />
-            )
-            }
+            )} */}
         </div>
-
     )
 }
 
