@@ -19,7 +19,7 @@ export const MenuCard = (props) => {
 
 const RestaurantMenu = () => {
     const params = useParams()
-    console.log(params)
+    // console.log(params)
     useEffect(()=>{
         fetchMenu()
     },[])
@@ -34,16 +34,16 @@ const RestaurantMenu = () => {
         setMenuFromAPI(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
         setResName(json?.data?.cards[0]?.card?.card?.text)
         // console.log(json)
-        console.log(menuFromAPI)
-        console.log(categoriesFromAPI)
+        // console.log(menuFromAPI)
+        // console.log(categoriesFromAPI)
         const filteredCategories = categoriesFromAPI?.filter(category => (category?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")) // DO FROM HERE
-        console.log(filteredCategories)
+        // console.log(filteredCategories)
         setcategories(filteredCategories)
     }
     return (
         <div>
             <h1 className="font-bold m-8 text-3xl text-center">{resName}</h1>
-            {categories.map((category)=><ResCategory category={category}/>)}
+            {categories.map((category)=><ResCategory key={category?.card?.card?.title} category={category}/>)}
             {/* {menuFromAPI?.map(
             (menu) => <MenuCard 
             key={menu?.card?.info?.id}

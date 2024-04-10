@@ -1,12 +1,14 @@
+import { useState } from "react"
 import {MenuCard} from "./RestaurantMenu"
 
 const ResCategory = (props) => {
+    const [showItems,setShowItems] = useState(false)
     const {category} = props
     const items = category?.card?.card?.itemCards
     const title = category?.card?.card?.title
     return (
         <div className="p-4 m-4 bg-purple-200 rounded-lg">
-            <div className="flex justify-between">
+            <div className="flex justify-between hover:cursor-pointer" onClick={()=>{setShowItems(!showItems)}}>
                 <div>
                     <h1 className="font-bold text-2xl">{title} ({items.length})</h1>
                 </div>
@@ -14,6 +16,7 @@ const ResCategory = (props) => {
                 <h1 className="font-bold text-2xl mr-8">↓</h1>
                 </div>
             </div>
+            { showItems && (
             <div>
                 {items?.map(
                     (menu) => <MenuCard 
@@ -24,6 +27,7 @@ const ResCategory = (props) => {
                     /> 
                 )}
             </div>
+            )}
         </div>
     )
 }

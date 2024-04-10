@@ -20,7 +20,7 @@ const Body = () => {
     useEffect(()=>{fetchData()},[])
     const fetchData = async () => {
         const data = await fetch(API_LINK)
-        const json = await data.json()
+        const json = await data?.json()
         cardsFromAPI = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         setPowerfulCards(cardsFromAPI)
     };
@@ -67,9 +67,8 @@ const Body = () => {
                 API IS WORKING*/}
                 {powerfulCards?.map(card => 
                 (card?.info?.avgRating<4.5)?
-                (<Link to={"/restaurant/"+card?.info?.id} className="m-8" >
+                (<Link to={"/restaurant/"+card?.info?.id} className="m-8" key = {card?.info?.id}>
                     <ResComponent
-                        key = {card?.info?.id}
                         name={card?.info?.name}
                         style={card?.info?.cuisines.join(", ")}
                         rating={card?.info?.avgRating}
@@ -77,7 +76,7 @@ const Body = () => {
                         link={CLOUDINARY_IMG_PREFIX+card?.info?.cloudinaryImageId} />
                 </Link>
                 ) : (
-                <Link to={"/restaurant/"+card?.info?.id} className="m-8">
+                <Link to={"/restaurant/"+card?.info?.id} className="m-8 key = {card?.info?.id} ">
                     <TopRatedRes
                         key = {card?.info?.id}
                         name={card?.info?.name}
