@@ -1,5 +1,5 @@
 // import Search from "./Search"
-import ResComponent from "./ResComponent"
+import ResComponent, {TopRatedRes} from "./ResComponent"
 import { API_LINK } from "../utils/constants"
 import { CLOUDINARY_IMG_PREFIX } from "../utils/constants"
 // import { CORS_PROXY_PREF } from "../utils/constants"
@@ -36,7 +36,7 @@ const Body = () => {
 
     return (
         <div>
-            <div className="flex m-5">
+            <div className="flex m-8">
                 <div className="search-box">
                     <input className="border border-solid rounded-lg border-black" type="text" value={searchText} onChange={
                         (e)=>{
@@ -66,15 +66,29 @@ const Body = () => {
                 OR NOT IN THE MORNING WHEN THE 
                 API IS WORKING*/}
                 {powerfulCards?.map(card => 
-                <Link to={"/restaurant/"+card?.info?.id}>
-                    <ResComponent 
+                (card?.info?.avgRating<4.5)?
+                (<Link to={"/restaurant/"+card?.info?.id}>
+                    <ResComponent
                         key = {card?.info?.id}
                         name={card?.info?.name}
                         style={card?.info?.cuisines.join(", ")}
                         rating={card?.info?.avgRating}
                         time={card?.info?.sla?.slaString}
                         link={CLOUDINARY_IMG_PREFIX+card?.info?.cloudinaryImageId} />
-                </Link>)}
+                </Link>
+                ) : (
+                <Link to={"/restaurant/"+card?.info?.id}>
+                    <TopRatedRes
+                        key = {card?.info?.id}
+                        name={card?.info?.name}
+                        style={card?.info?.cuisines.join(", ")}
+                        rating={card?.info?.avgRating}
+                        time={card?.info?.sla?.slaString}
+                        link={CLOUDINARY_IMG_PREFIX+card?.info?.cloudinaryImageId} />
+                </Link>
+                )    
+            )
+            }
             </div>
         </div>
     )

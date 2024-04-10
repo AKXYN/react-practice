@@ -15,4 +15,23 @@ const ResComponent = (props) => {
     )
 }
 
+export const Enhanced = (ResComponent) => {
+    // console.log("Inside TopRatedRes")
+    // console.log(props)
+    const NewComponent = (props) => {
+        return (
+            <div>
+                <label className="absolute ml-32 bg-black text-white rounded-lg w-28 px-4">TOP RATED</label>
+                <ResComponent {...props}
+                />
+            </div>
+        )
+    }
+    return NewComponent
+}
+
+export const TopRatedRes = Enhanced(ResComponent)
+
+
+
 export default ResComponent
