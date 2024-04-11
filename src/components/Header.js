@@ -8,8 +8,10 @@ const Header = () => {
     return (
         <div className="flex justify-between bg-purple-400 shadow-lg items-center h-28 w-auto">
             <div className="h-28">
+                <Link to="/">
                 <img className="h-28"
                 src={LOGO_URL}></img>
+                </Link>
             </div>
             <div className="w-9/12">
                 <ul className="flex justify-between">
