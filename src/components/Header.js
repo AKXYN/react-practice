@@ -6,7 +6,7 @@ import useOnlineStatus from "../utils/useOnlineStatus"
 const Header = () => {
     const [status,setStatus] = useState("Login")
     return (
-        <div className="flex justify-between bg-purple-400 shadow-lg items-center h-28 w-auto">
+        <div className="flex justify-between bg-purple-400 items-center h-28 w-auto shadow-2xl">
             <div className="h-28">
                 <Link to="/">
                 <img className="h-28"
