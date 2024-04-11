@@ -37,7 +37,7 @@ const Body = () => {
     return (
         <div>
             <div className="flex m-8">
-                <div className="search-box">
+                <div className="flex">
                     <input className="rounded-lg border border-black" type="text" value={searchText} onChange={
                         (e)=>{
                             setSearchText(e.target.value)
