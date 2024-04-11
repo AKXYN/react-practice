@@ -7,10 +7,12 @@ import { useState } from "react"
 import { useEffect} from "react"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
+import { CORS_ANYWHERE_URL } from "../utils/constants"
 // import useOnlineStatus from "../utils/useOnlineStatus"
 
 let cardsFromAPI = []
 let has_filtered=false
+
 
 const Body = () => {
 
@@ -19,7 +21,11 @@ const Body = () => {
     
     useEffect(()=>{fetchData()},[])
     const fetchData = async () => {
-        const data = await fetch(API_LINK)
+        const data = await fetch(CORS_ANYWHERE_URL+API_LINK,{
+            headers: {
+                'Origin': 'https://react-practice-umber.vercel.app/'
+            }
+        })
         const json = await data?.json()
         cardsFromAPI = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         setPowerfulCards(cardsFromAPI)

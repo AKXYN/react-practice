@@ -3,6 +3,7 @@ import { CLOUDINARY_IMG_PREFIX, API_MENU_LINK_PREFIX, API_MENU_LINK_SUFFIX } fro
 // import { json } from "react-router-dom"
 import { useParams } from "react-router-dom"
 import ResCategory from "./ResCategory"
+import { CORS_ANYWHERE_URL } from "../utils/constants"
 
 export const MenuCard = (props) => {
     return (
@@ -29,7 +30,7 @@ const RestaurantMenu = () => {
     const [resName,setResName] = useState("")
     const fetchMenu = async () => {
         const link = API_MENU_LINK_PREFIX+params.resId+API_MENU_LINK_SUFFIX
-        const data = await fetch(link)
+        const data = await fetch(CORS_ANYWHERE_URL+link)
         const json = await data.json()
         const categoriesFromAPI = json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
         setMenuFromAPI(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
