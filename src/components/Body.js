@@ -38,17 +38,17 @@ const Body = () => {
         <div>
             <div className="flex m-8">
                 <div className="search-box">
-                    <input className="border border-solid rounded-lg border-black" type="text" value={searchText} onChange={
+                    <input className="rounded-lg border border-black" type="text" value={searchText} onChange={
                         (e)=>{
                             setSearchText(e.target.value)
                         }}/>
-                    <button class="mx-5 border bg-green-500 rounded-lg font-bold w-20" onClick={()=>{
+                    <button class="mx-5 hover:border hover:border-black bg-green-500 rounded-lg font-bold w-20" onClick={()=>{
                         setPowerfulCards(cardsFromAPI?.filter(
                             (res) => (res?.info?.name).toLowerCase().includes(searchText.toLocaleLowerCase())
                         ))
                     }}>Search</button>
                 </div>
-                <button className="mx-10 w-52 border bg-green-500 rounded-lg font-bold w-200" onClick={()=>{
+                <button className="mx-10 w-52 hover:border hover:border-black bg-green-500 rounded-lg font-bold w-200" onClick={()=>{
                     if(has_filtered) filtered=cardsFromAPI
                     else{
                         filtered = cardsFromAPI?.filter(
@@ -58,7 +58,7 @@ const Body = () => {
                     has_filtered = ! has_filtered
                     setPowerfulCards(filtered)
                 }}>
-                    Top rated Restaurants
+                    Top Rated Restaurants
                 </button>
             </div>
             <div className="flex flex-wrap">
