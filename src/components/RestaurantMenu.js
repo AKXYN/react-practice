@@ -9,7 +9,7 @@ export const MenuCard = (props) => {
         <div className="flex m-4 border border-solid items-center drop-shadow-lg h-auto rounded-3xl hover:drop-shadow-2xl hover:cursor-pointer bg-purple-100 hover:bg-pink-200 hover:border-solid hover:border-black hover:border justify-between">
             {props?.link && <img className="h-40 w-40 rounded-3xl border-black border"
             src={CLOUDINARY_IMG_PREFIX+props?.link} />}
-            <div className="font-bold mx-8 w-2/12">
+            <div className="font-bold mx-8 w-3/12">
                 <h3>{props.name}</h3>
                 <h3>{"Rs. "+props.price}</h3>
             </div>
