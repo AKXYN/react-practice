@@ -82,9 +82,8 @@ const Body = () => {
                         link={CLOUDINARY_IMG_PREFIX+card?.info?.cloudinaryImageId} />
                 </Link>
                 ) : (
-                <Link to={"/restaurant/"+card?.info?.id} className="m-8 key = {card?.info?.id} ">
+                <Link to={"/restaurant/"+card?.info?.id} className="m-8" key = {card?.info?.id}>
                     <TopRatedRes
-                        key = {card?.info?.id}
                         name={card?.info?.name}
                         style={card?.info?.cuisines.join(", ")}
                         rating={card?.info?.avgRating}
