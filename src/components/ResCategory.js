@@ -22,7 +22,7 @@ const ResCategory = (props) => {
                     (menu) => <MenuCard 
                     key={menu?.card?.info?.id}
                     name={menu?.card?.info?.name} 
-                    price={menu?.card?.info?.price/100}
+                    price={menu?.card?.info?.price/100 || menu?.card?.info?.defaultPrice/100}
                     link={menu?.card?.info?.imageId}
                     /> 
                 )}
