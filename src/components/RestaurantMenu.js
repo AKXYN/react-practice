@@ -7,14 +7,14 @@ import { CORS_ANYWHERE_URL } from "../utils/constants"
 
 export const MenuCard = (props) => {
     return (
-        <div className="flex m-4 border border-solid items-center drop-shadow-lg h-auto rounded-3xl hover:drop-shadow-2xl hover:cursor-pointer bg-purple-100 hover:bg-pink-200 hover:border-solid hover:border-black hover:border justify-between">
+        <div className="flex m-4 items-center drop-shadow-lg h-auto rounded-3xl hover:drop-shadow-2xl hover:cursor-pointer bg-purple-100 hover:bg-pink-200 justify-between">
             {props?.link && <img className="h-40 w-40 rounded-3xl border-black border"
             src={CLOUDINARY_IMG_PREFIX+props?.link} />}
             <div className="font-bold mx-8 w-3/12">
                 <h3>{props.name}</h3>
                 <h3>{"Rs. "+props.price}</h3>
             </div>
-            <button className="bg-green-600 text-white rounded-lg w-16 font-bold">Add +</button>
+            <button className="bg-green-600 text-white rounded-lg w-16 font-bold hover:border hover:border-black">Add +</button>
         </div>
     )
 }
