@@ -7,7 +7,7 @@ const ResCategory = (props) => {
     const items = category?.card?.card?.itemCards
     const title = category?.card?.card?.title
     return (
-        <div className="p-4 m-4 bg-purple-200 rounded-lg">
+        <div className="p-4 m-4 bg-purple-200 rounded-lg shadow-lg hover:shadow-2xl">
             <div className="flex justify-between hover:cursor-pointer" onClick={()=>{setShowItems(!showItems)}}>
                 <div>
                     <h1 className="font-bold text-2xl">{title} ({items.length})</h1>
